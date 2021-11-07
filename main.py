@@ -32,8 +32,6 @@ class Series(Movie):
 class Blockbuster:
 
     def __init__(self, movies_list=None):
-        if movies_list is None:
-            movies_list = list()
         self.movies_list = movies_list or []
 
     def all_movies(self):
@@ -43,7 +41,7 @@ class Blockbuster:
         return self.movies_list.copy()
 
     def get_movies(self):
-        return [line for line in self.movies_list if not isinstance(line, Series)]
+        return [line for line in self.movies_list if isinstance(line, Movie)]
 
     def get_series(self):
         return [line for line in self.movies_list if isinstance(line, Series)]
